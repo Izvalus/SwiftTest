@@ -1,0 +1,177 @@
+
+//Syntax - Синтаксис
+
+func qwer(sum: Int) -> Int {
+    let a = sum
+    return a
+}
+qwer(sum: 4)
+
+
+
+
+func man(name: String) -> String {
+    return name
+}
+man(name: "Jack")
+
+//Parameters and Return Values - Параметры и возвращаемые значения
+
+func qwer2(sum: Int, plov: Int) -> Int {
+    let summary = sum + plov
+    return summary
+}
+qwer2(sum: 4, plov: 11)
+
+func mult(a: Int, b: Int) -> Int {
+    return a * b
+}
+mult(a: 4, b: 11)
+
+//Functions without Parameters
+
+func test() -> String {
+    return "John"
+}
+test()
+
+//Functions with Return Values - Функции с возвращаемыми значениями
+
+func money(wallet: [Int]) -> (min: Int, max: Int) {
+    var minMin = wallet[0]
+    var maxMax = wallet[0]
+    for i in 1..<wallet.count {
+        if i > maxMax {
+            maxMax = i
+        } else if i < minMin {
+            minMin = i
+        }
+    }
+    return(minMin, maxMax)
+}
+var array = [3, 1, 11, 4, 123, 12, 23, 53, 6, 5, 31, 33]
+money(wallet: array)
+
+//Functions without Return Values - Функции без возвращаемых значений
+
+func funcWithout(a: Int, b: Int){
+    let a = a + b
+    let b = a - b
+    print("a + b = \(a), a - b = \(b)")
+}
+funcWithout(a: 9, b: 7)
+
+//Functions with Optional Return Types - Функции с необязательными типами возврата
+
+func moneyOpt(wallet: [Int]) -> (min: Int, max: Int)? {
+    if wallet.isEmpty { return nil }
+    var minMin = wallet[0]
+    var maxMax = wallet[0]
+    for i in 1..<wallet.count {
+        if i > maxMax {
+            maxMax = i
+        } else if i < minMin {
+            minMin = i
+        }
+    }
+    return(minMin, maxMax)
+}
+if let types = moneyOpt(wallet: array) {
+    print("min is \(types.min), max is \(types.max)")
+}
+
+//External Parameter Names - Имена внешних параметров
+
+func externalPar(firstName a: Int, secondName b: Int) -> Int {
+    var result = a
+    for _ in 1..<b {
+    result *= a
+    }
+    print(result)
+    return result
+}
+externalPar(firstName: 7, secondName: 4)
+
+//Variadic Parameters
+func variadic(par: Int...){
+    print(par)
+}
+variadic(par: 1, 3, 4, 11)
+
+//Constant, Variable and I/O Parameters - Константа, переменная и параметры ввода / вывода
+
+func con(ar: inout Int, br: inout Int) {
+    let const = ar
+    ar = br
+    br = const
+    
+}
+var crot = 3
+var plot = 2
+con(ar: &crot, br: &plot)
+
+//Function Types & its Usage - Типы функций и их использование
+
+func funcTypes(a: Int, b: Int) -> Int {
+    return a / b
+}
+funcTypes(a: 10, b: 2)
+
+//Using Function Types - Использование типов функций
+
+func summary(a: Int, b: Int) -> Int {
+    return a + b
+}
+
+var usingFuncTypes: (Int, Int) -> Int = summary
+summary(a: 2, b: 6)
+usingFuncTypes(4, 11)
+
+//Function Types as Parameter Types & Return Types - Типы функций как типы параметров и типы возврата
+
+func summ(a: Int, b: Int) -> Int {
+    return a + b
+}
+
+var usingFuncTypes2: (Int, Int) -> Int = summ
+
+func returnTypes(usingFuncTypes2:(Int, Int) -> Int, a: Int, b: Int) {
+    print("Results: \(usingFuncTypes2(a, b))")
+}
+returnTypes(usingFuncTypes2: summ, a: 71, b: 93)
+
+//Nested Functions - Вложенные функции
+
+func nestedFunc(nest funcN: Int) -> () -> Int {
+    var orNest = 0
+    func orNestFunc() -> Int{
+        orNest -= funcN
+        return orNest
+    }
+    return orNestFunc
+}
+let nest = nestedFunc(nest: 100)
+print(nest())
+
+//Создайте функцию, которая принимает массив, а возвращает массив в обратном порядке.
+
+func arr(array: [Int]) -> [Int] {
+    return array.reversed()
+}
+var testov = [1, 2, 3, 4, 5, 6, 7]
+print(arr(array: testov))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
